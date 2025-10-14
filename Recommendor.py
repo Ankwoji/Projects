@@ -1,13 +1,8 @@
-"""
-Movie Recommendation Engine using TensorFlow and MovieLens dataset
-"""
-
 import os
 import zipfile
 import requests
 import pandas as pd
 import numpy as np
-
 def download_and_extract_movielens():
     url = "https://files.grouplens.org/datasets/movielens/ml-latest-small.zip"
     dataset_path = "ml-latest-small"

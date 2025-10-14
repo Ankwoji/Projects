@@ -6,10 +6,9 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 from tensorflow import keras
 from tensorflow.keras import layers
-
-# Download dataset if not present
 import os
 import requests
+
 DATA_URL = "https://storage.googleapis.com/download.tensorflow.org/data/creditcard.csv"
 DATA_PATH = "creditcard.csv"
 if not os.path.exists(DATA_PATH):
@@ -29,7 +28,7 @@ print("Data loaded. Shape:", df.shape)
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Class distribution (imbalance)
+
 plt.figure(figsize=(6,4))
 sns.countplot(x='Class', data=df)
 plt.title('Class Distribution (0: Not Fraud, 1: Fraud)')
@@ -51,7 +50,6 @@ sns.heatmap(df[top_corr_features + ['Class']].corr(), annot=True, cmap='coolwarm
 plt.title('Correlation Heatmap (Top Features vs Class)')
 plt.show()
 
-# Prepare features and labels
 X = df.drop(["Class"], axis=1).values
 y = df["Class"].values
 
